@@ -1,0 +1,1 @@
+This is a simple recreation of the game Simon on the TI-84 Plus Calculator. The game has a single TI-Basic program named MEMORY. A video going over the game can be found [here](https://www.youtube.com/watch?v=Rba34w_z6DI).

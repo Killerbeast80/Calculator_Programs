@@ -1,0 +1,1 @@
+This program is a remake of the old Microsoft game Minesweeper. The game uses both a main program MINESWPR and a subprogram ZMINESWP. A video going over the game can be found [here](https://www.youtube.com/watch?v=WEdwznBGl9c).

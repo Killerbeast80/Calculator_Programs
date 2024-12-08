@@ -1,0 +1,1 @@
+This program is the classic game Snake. The snake never stops moving, and you win if you can eat 100 apples. However, you grow longer with each apple eaten. A video going over the game can be found [here](https://www.youtube.com/watch?v=nUoeTnRICLA).

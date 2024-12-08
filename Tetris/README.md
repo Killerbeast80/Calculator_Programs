@@ -1,0 +1,1 @@
+This program is a near-perfect recreation of the classic game Tetris. The only difference is the scoring system. The game has a main program TETRIS and subprogram ZTETRIS. A video going over the game can be found [here](https://www.youtube.com/watch?v=7zajlq5-AN8).

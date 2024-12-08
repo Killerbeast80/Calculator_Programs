@@ -1,0 +1,1 @@
+This program uses a python script to convert an image in Google Drive into a string of binary, which is inserted into a throw-away TI-Basic program IMAGE that draws it on the calculator. Detailed video instructions can be found [here](https://www.youtube.com/watch?v=lJ-WLOZzv_E).

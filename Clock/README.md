@@ -1,0 +1,1 @@
+This program displays a live clock with whatever time is stored in the calculator.

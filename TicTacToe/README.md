@@ -1,0 +1,1 @@
+This game allows you to play Tic-Tac-Toe against a bot. It randomizes who goes first. You use the keys 1-9 to select which square you want to place an "O". The bot will always win or block you if it has the option.

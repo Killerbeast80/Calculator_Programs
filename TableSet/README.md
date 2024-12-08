@@ -1,0 +1,1 @@
+This program is an easy way to set up the graph screen for plotting a function. It asks you the location of the center of your view (could be 0,0) and the height you want to see (could be 10). It makes all the pixels on the graph screen square.
