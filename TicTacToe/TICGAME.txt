@@ -1,0 +1,179 @@
+{0,0,0,0,0,0,0,0,0}→L₁
+{1,4,7,2,5,8,3,6,9,7,8,9,4,5,6,1,2,3,7,5,3,1,5,9}→L₂
+
+If randInt(0,1)
+Then
+0→D
+2→B
+Goto 1
+Else
+1→L₁(randInt(1,9))
+1→D
+2→B
+Goto 1
+End
+
+
+Lbl 1
+ClrHome
+Output(3,11," | | ")
+Output(4,11,"-+-+-")
+Output(5,11," | | ")
+Output(6,11,"-+-+-")
+Output(7,11," | | ")
+1→Z
+7→Y
+11→X
+For(Z,1,9)
+If L₁(Z)=1
+Then
+Output(Y,X,"X")
+End
+If L₁(Z)=4
+Then
+Output(Y,X,"O")
+End
+X+2→X
+If X=17
+Then
+Y-2→Y
+11→X
+End
+End
+If B=2
+Goto 2
+If B=3
+Goto 4
+If B=4
+Then
+Disp "YOU LOSE"
+Pause 
+Stop
+End
+If B=5
+Then
+Disp "YOU WIN"
+Pause 
+Stop
+End
+If B=6
+Then
+Disp "CAT'S GAME"
+Pause 
+Stop
+End
+If B=7
+Then
+Disp "CALC'S TURN"
+For(C,1,200)
+Goto 3
+End
+
+
+Lbl 2
+Disp "PLACE AN O"
+Input A
+If A<1
+Then
+Disp "INVALID INPUT"
+Pause 
+2→B
+Goto 1
+End
+If A>9
+Then
+Disp "INVALID INPUT"
+Pause 
+2→B
+Goto 1
+End
+If L₁(A)>0
+Then
+Disp "SPOT TAKEN"
+Pause 
+2→B
+Goto 1
+End
+4→L₁(A)
+1+D→D
+3→B
+Goto 4
+
+
+Lbl 3
+For(C,1,8)
+If L₃(C)=1
+Then
+If L₁(L₂(3C-2))=0
+1→L₁(L₂(3C-2))
+If L₁(L₂(3C-1))=0
+1→L₁(L₂(3C-1))
+If L₁(L₂(3C))=0
+1→L₁(L₂(3C))
+2→B
+1+D→D
+Goto 4
+End
+End
+For(C,1,8)
+If L₃(C)=2
+Then
+If L₁(L₂(3C-2))=0
+1→L₁(L₂(3C-2))
+If L₁(L₂(3C-1))=0
+1→L₁(L₂(3C-1))
+If L₁(L₂(3C))=0
+1→L₁(L₂(3C))
+2→B
+1+D→D
+Goto 4
+End
+End
+randIntNoRep(1,9)→L₄
+1→C
+While C≤9
+If L₁(L₄(C))=0
+Then
+1→L₁(L₄(C))
+10→C
+End
+1+C→C
+End
+1+D→D
+2→B
+Goto 4
+
+
+Lbl 4
+{0,0,0,0,0,0,0,0}→L₃
+For(S,1,8)
+L₁(L₂(3S-2))+L₁(L₂(3S-1))+L₁(L₂(3S))→R
+If R=2
+1→L₃(S)
+If R=8
+2→L₃(S)
+If R=3
+3→L₃(S)
+If R=12
+4→L₃(S)
+End
+For(C,1,8)
+If L₃(C)=3
+Then
+4→B
+Goto 1
+End
+If L₃(C)=4
+Then
+5→B
+Goto 1
+End
+End
+If D=9
+Then
+6→B
+Goto 1
+End
+If B=3
+7→B
+Goto 1

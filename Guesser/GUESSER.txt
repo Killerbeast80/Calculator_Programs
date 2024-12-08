@@ -1,0 +1,50 @@
+0→E
+1→F
+While E=0
+ClrHome
+Disp F
+F+1→F
+Disp "1≤A≤15"
+randInt(1,15)→A
+0→B
+0→C
+0→D
+While D=0
+Disp "GUESS"
+Input B
+If B=A
+Then
+Disp "CORRECT"
+1→D
+Else
+If C≠2
+Then
+If B<A
+Then
+Disp "HIGHER"
+Else
+Disp "LOWER"
+End
+End
+End
+C+1→C
+If C=3
+Then
+1→D
+End
+End
+If B≠A
+Then
+Disp "YOU LOSE"
+Disp "A="
+Disp A
+End
+If B≠A
+Then
+1→E
+Output(3,16,F-2)
+Output(4,11,"STREAK")
+Else
+Pause 
+End
+End

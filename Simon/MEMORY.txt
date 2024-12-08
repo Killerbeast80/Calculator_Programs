@@ -1,0 +1,112 @@
+AxesOff
+ClrDraw
+FnOff 
+ZStandard
+84→Xmin
+72→Ymax
+ZInteger
+
+Circle(47,31,14,{
+
+{0,0,0}→L₁
+For(A,1,3)
+randInt(1,4)→B
+If B=1
+25→L₁(A)
+If B=2
+26→L₁(A)
+If B=3
+34→L₁(A)
+If B=4
+24→L₁(A)
+End
+
+Text(­1,5,30,"READY?"
+Pause 
+Text(­1,5,30,"      "
+
+Repeat 0
+For(A,1,dim(L₁
+Text(­1,28,37," "
+Text(­1,28,53," "
+Text(­1,22,45," "
+Text(­1,34,45," "
+For(B,1,100)
+End
+If L₁(A)=25
+Text(­1,22,45,""
+If L₁(A)=26
+Text(­1,28,53,""
+If L₁(A)=34
+Text(­1,34,45,""
+If L₁(A)=24
+Text(­1,28,37,""
+For(B,1,250)
+End
+End
+Text(­1,28,37," "
+Text(­1,28,53," "
+Text(­1,22,45," "
+Text(­1,34,45," "
+
+For(A,1,dim(L₁
+Repeat Ans
+getKey→K
+End
+If K≠L₁(A)
+Goto 1
+Text(­1,28,37," "
+Text(­1,28,53," "
+Text(­1,22,45," "
+Text(­1,34,45," "
+If L₁(A)=25
+Text(­1,22,45,""
+If L₁(A)=26
+Text(­1,28,53,""
+If L₁(A)=34
+Text(­1,34,45,""
+If L₁(A)=24
+Text(­1,28,37,""
+End
+For(B,1,150)
+End
+Text(­1,28,37," "
+Text(­1,28,53," "
+Text(­1,22,45," "
+Text(­1,34,45," "
+randInt(1,4)→B
+If B=1
+augment(L₁,{25→L₁
+If B=2
+augment(L₁,{26→L₁
+If B=3
+augment(L₁,{34→L₁
+If B=4
+augment(L₁,{24→L₁
+End
+
+Lbl 1
+Text(­1,51,25,"  STREAK"
+Text(­1,51,23,dim(L₁)-1
+For(B,1,3)
+Text(­1,28,37," "
+Text(­1,28,53," "
+Text(­1,22,45," "
+Text(­1,34,45," "
+For(C,1,100)
+End
+If L₁(A)=25
+Text(­1,22,45,""
+If L₁(A)=26
+Text(­1,28,53,""
+If L₁(A)=34
+Text(­1,34,45,""
+If L₁(A)=24
+Text(­1,28,37,""
+For(C,1,200)
+End
+End
+ClrList L₁
+Pause 
+ClrHome
+Stop

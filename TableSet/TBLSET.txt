@@ -1,0 +1,16 @@
+FnOn 
+AxesOn 
+ClrHome
+Disp "HEIGHT"
+Input A
+Disp "CENTER X"
+Input B
+Disp "CENTER Y"
+Input C
+(­47*A/31+B)→Xmin
+(47*A/31+B)→Xmax
+1→Xscl
+(­1*A+C)→Ymin
+(A+C)→Ymax
+1→Yscl
+Disp "DONE"

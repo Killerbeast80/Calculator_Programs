@@ -1,0 +1,232 @@
+AxesOff
+ClrDraw
+FnOff 
+ZStandard
+84→Xmin
+72→Ymax
+ZInteger
+
+Line(42,0,84,0
+Line(42,1,84,1
+For(A,4,61,3)
+Line(42,A,46,A
+End
+For(A,4,61,3)
+Line(80,A,84,A
+End
+Vertical 45
+Vertical 46
+Vertical 80
+Vertical 81
+Text(3,3,"TETRELLIS"
+Line(13,39,30,39
+Line(30,39,30,28
+Line(30,28,13,28
+Line(13,28,13,39
+Text(15,13,"NEXT:"
+Line(0,0,0,4
+Line(1,5,14,5
+Line(15,4,15,0
+Line(5,0,5,3
+Line(6,0,6,3
+Line(9,0,9,3
+Line(10,0,10,3
+Line(17,0,17,4
+Line(18,5,31,5
+Line(32,4,32,0
+Line(23,0,23,3
+Line(24,0,24,3
+Line(25,0,25,3
+Line(26,0,26,3
+Text(39,1,"SCORE:"
+0→S
+Text(39,24,S
+Text(47,1,"LINES:"
+0→L
+Text(47,24,L
+
+randInt(1,6)→N
+Pt-On(20,32,2
+
+{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}→L₂
+5→Z
+Text(55,89,"1"
+
+Repeat 0
+N→B
+1→R
+randInt(1,7)→N
+Pt-Off(17,35,2
+Pt-Off(20,35,2
+Pt-Off(23,35,2
+Pt-Off(17,32,2
+Pt-Off(23,32,2
+Pt-Off(26,32,2
+If N=2 or N=7
+Pt-On(17,35,2
+If N>3
+Pt-On(20,35,2
+If N=3 or N=4 or N=5
+Pt-On(23,35,2
+If N<7 and N≠4
+Pt-On(17,32,2
+If N≠5
+Pt-On(23,32,2
+If N=1
+Pt-On(26,32,2
+
+If B=1
+{57,57,60,57,63,57,66,57}→L₁
+If B=2
+{60,60,60,57,63,57,66,57}→L₁
+If B=3
+{60,57,66,57,63,57,66,60}→L₁
+If B=4
+{60,60,63,60,60,57,63,57}→L₁
+If B=5
+{63,60,66,60,63,57,60,57}→L₁
+If B=6
+{60,57,63,60,63,57,66,57}→L₁
+If B=7
+{60,60,63,60,63,57,66,57}→L₁
+L₁(1)→C
+L₁(2)→D
+L₁(3)→E
+L₁(4)→F
+L₁(5)→G
+L₁(6)→H
+L₁(7)→I
+L₁(8)→J
+
+If pxl-Test(62-D,C) or pxl-Test(62-F,E) or pxl-Test(62-H,G) or pxl-Test(62-J,I)
+Stop
+
+Pt-On(C,D,2
+Pt-On(E,F,2
+Pt-On(G,H,2
+Pt-On(I,J,2
+
+1→M
+While M
+For(A,1,Z)
+getKey→K
+
+If K=11
+Pause 
+
+If K=12
+Stop
+
+If K=24
+Then
+If pxl-Test(62-D,C-3)+pxl-Test(62-F,E-3)+pxl-Test(62-H,G-3)+pxl-Test(62-J,I-3)=0
+Then
+Pt-Off(C,D,2
+Pt-Off(E,F,2
+Pt-Off(G,H,2
+Pt-Off(I,J,2
+C-3→C
+E-3→E
+G-3→G
+I-3→I
+Pt-On(C,D,2
+Pt-On(E,F,2
+Pt-On(G,H,2
+Pt-On(I,J,2
+End
+End
+
+If K=26
+Then
+If pxl-Test(62-D,C+3)+pxl-Test(62-F,E+3)+pxl-Test(62-H,G+3)+pxl-Test(62-J,I+3)=0
+Then
+Pt-Off(C,D,2
+Pt-Off(E,F,2
+Pt-Off(G,H,2
+Pt-Off(I,J,2
+C+3→C
+E+3→E
+G+3→G
+I+3→I
+Pt-On(C,D,2
+Pt-On(E,F,2
+Pt-On(G,H,2
+Pt-On(I,J,2
+End
+End
+
+If K=25
+prgmZTETRIS
+
+If K=34
+8→A
+
+End
+
+If pxl-Test(65-D,C)+pxl-Test(65-F,E)+pxl-Test(65-H,G)+pxl-Test(65-J,I)=0
+Then
+Pt-Off(C,D,2
+Pt-Off(E,F,2
+Pt-Off(G,H,2
+Pt-Off(I,J,2
+D-3→D
+F-3→F
+H-3→H
+J-3→J
+Pt-On(C,D,2
+Pt-On(E,F,2
+Pt-On(G,H,2
+Pt-On(I,J,2
+Else
+Pt-On(C,D
+Pt-On(E,F
+Pt-On(G,H
+Pt-On(I,J
+0→M
+L₂(D/3)+1→L₂(D/3)
+L₂(F/3)+1→L₂(F/3)
+L₂(H/3)+1→L₂(H/3)
+L₂(J/3)+1→L₂(J/3)
+S+4→S
+Text(39,24,S
+End
+
+End
+
+0→Q
+For(A,1,20)
+If L₂(A)=11
+Then
+L+1→L
+Text(47,24,L
+Q+1→Q
+Line(47,3A-1,79,3A-1,0
+Line(47,3A,79,3A,0
+Line(47,3A+1,79,3A+1,0
+0→L₂(A)
+For(Y,A,19)
+If L₂(Y+1)>0
+Then
+For(X,48,78,3)
+If pxl-Test(59-3Y,X
+Then
+Pt-Off(X,3Y+3,2
+Pt-Off(X,3Y+3
+Pt-On(X,3Y,2
+Pt-On(X,3Y
+End
+End
+L₂(Y+1)→L₂(Y)
+0→L₂(Y+1)
+End
+End
+A-1→A
+End
+End
+S+Q²*40→S
+Text(39,24,S
+5-iPart(S/500)→Z
+If Z<1
+1→Z
+Text(55,89,6-Z
+End

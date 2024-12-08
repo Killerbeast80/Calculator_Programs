@@ -1,0 +1,195 @@
+AxesOff
+ClrDraw
+FnOff 
+ZStandard
+84→Xmin
+72→Ymax
+ZInteger
+
+0→D
+While D<1 or D>3
+ClrHome
+Input "DIFFICULTY:",D
+End
+2*D-2→D
+
+For(A,6,61,5
+Horizontal A
+Horizontal A+1
+End
+For(A,1,91,5
+Vertical A
+Vertical A+1
+End
+Line(0,62,0,6,0
+For(A,0,5
+Line(1,A,92,A,0
+End
+Line(94,6,94,62,0
+Line(93,6,93,62,0
+
+0→F
+Text(57,2,"Placing bombs"
+DelVar [A]
+{13,20}→dim([A]
+For(A,2,12
+For(B,2,19
+0→E
+If [A](A-1,B-1)=9
+E+1→E
+If [A](A-1,B)=9
+E+1→E
+If [A](A-1,B+1)=9
+E+1→E
+If [A](A,B-1)=9
+E+1→E
+randInt(1,10-D-E)→R
+If R=1
+Then
+9→[A](A,B)
+F+1→F
+End
+End
+End
+0→[A](7,11)
+Line(1,4,75,4,0
+Line(1,3,75,3,0
+Line(1,2,75,2,0
+Line(1,1,75,1,0
+Line(1,0,75,0,0
+
+Text(57,2,"Numbering Tiles"
+For(A,2,12
+For(B,2,19
+If [A](A,B)≠9
+Then
+0→E
+If [A](A-1,B-1)=9
+E+1→E
+If [A](A-1,B)=9
+E+1→E
+If [A](A-1,B+1)=9
+E+1→E
+If [A](A,B-1)=9
+E+1→E
+If [A](A,B+1)=9
+E+1→E
+If [A](A+1,B-1)=9
+E+1→E
+If [A](A+1,B)=9
+E+1→E
+If [A](A+1,B+1)=9
+E+1→E
+E→[A](A,B)
+End
+End
+End
+Line(1,4,75,4,0
+Line(1,3,75,3,0
+Line(1,2,75,2,0
+Line(1,1,75,1,0
+Line(1,0,75,0,0
+
+Text(57,2,"Changing bounds"
+For(A,2,12
+For(B,2,19
+[A](A,B)→[A](A-1,B-1)
+End
+End
+{11,18}→dim([A]
+Line(1,4,75,4,0
+Line(1,3,75,3,0
+Line(1,2,75,2,0
+Line(1,1,75,1,0
+Line(1,0,75,0,0
+
+49→X
+34→Y
+Pt-Off(X-2,Y-2
+Pt-Off(X-2,Y+2
+Pt-Off(X+2,Y-2
+Pt-Off(X+2,Y+2
+
+Pt-On(82,2,3
+Text(57,85,F
+
+198-F→Z
+0→W
+0→C
+Repeat W=Z
+Repeat Ans
+getKey→K
+C+0.07→C
+Text(57,2,iPart(C
+End
+
+If K>23 and K<35
+Then
+Pxl-Change(64-Y,X-2
+Pxl-Change(60-Y,X-2
+Pxl-Change(64-Y,X+2
+Pxl-Change(60-Y,X+2
+X-5(K=24)(X>4)+5(K=26)(X<89)→X
+Y-5(K=34)(Y>9)+5(K=25)(Y<59)→Y
+Pxl-Change(64-Y,X-2
+Pxl-Change(60-Y,X-2
+Pxl-Change(64-Y,X+2
+Pxl-Change(60-Y,X+2
+End
+
+If K=95
+Then
+If pxl-Test(64-Y,X and pxl-Test(63-Y,X)=0 and F>0
+Then
+Pt-On(X,Y,3
+F-1→F
+Text(57,85,"        "
+Text(57,85,F
+End
+End
+
+If K=23
+Then
+If pxl-Test(64-Y,X and pxl-Test(63-Y,X
+Then
+Pt-Off(X,Y,3
+F+1→F
+Text(57,85,"        "
+Text(57,85,F
+End
+End
+
+If K=105
+Then
+If pxl-Test(64-Y,X
+prgmZMINESWP
+Pt-On(X-2,Y+2
+Pt-On(X+2,Y+2
+Pt-On(X-2,Y-2
+Pt-On(X+2,Y-2
+End
+
+If K=11
+Then
+Pt-Off(X-2,Y-2
+Pt-Off(X-2,Y+2
+Pt-Off(X+2,Y-2
+Pt-Off(X+2,Y+2
+For(Y,59,9,­5)
+For(X,4,89,5)
+If pxl-Test(64-Y,X
+prgmZMINESWP
+End
+End
+DelVar [A]
+Stop
+End
+
+End
+Text(57,81,"WIN"
+Pt-Off(X-2,Y-2
+Pt-Off(X-2,Y+2
+Pt-Off(X+2,Y-2
+Pt-Off(X+2,Y+2
+Pause 
+DelVar [A]

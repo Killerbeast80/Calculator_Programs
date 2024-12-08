@@ -1,0 +1,84 @@
+If pxl-Test(62-Y,X
+Then
+Pt-Off(X,Y,3
+F+1→F
+Text(57,85,"        "
+Text(57,85,F
+End
+
+Pt-Off(X-1,Y+1,2
+Pt-Off(X+1,Y+1,2
+Pt-Off(X-1,Y-1,2
+Pt-Off(X+1,Y-1,2
+
+(64-Y)/5→A
+(X+1)/5→B
+
+If [A](A,B)≠9
+W+1→W
+
+If [A](A,B)=1
+Then
+Line(X,Y+2,X,Y
+Line(X-1,Y-1,X+1,Y-1
+Pt-On(X-1,Y+1
+End
+
+If [A](A,B)=2
+Then
+Line(X-1,Y+2,X,Y+2
+Pt-On(X+1,Y+1
+Pt-On(X,Y
+Line(X-1,Y-1,X+1,Y-1
+End
+
+If [A](A,B)=3
+Then
+Line(X-1,Y+2,X+1,Y+2
+Pt-On(X,Y
+Line(X+1,Y+1,X+1,Y-1
+Line(X-1,Y-1,X,Y-1
+End
+
+If [A](A,B)=4
+Then
+Pt-On(X,Y+1,2
+Pt-Off(X,Y+2
+Pt-On(X+1,Y-1
+End
+
+If [A](A,B)=5
+Then
+Line(X-1,Y+2,X+1,Y+2
+Line(X-1,Y+1,X,Y+1
+Pt-On(X+1,Y
+Line(X-1,Y-1,X,Y-1
+End
+
+If [A](A,B)=6
+Then
+Line(X,Y+2,X+1,Y+2
+Pt-On(X-1,Y+1
+Line(X-1,Y,X+1,Y
+Line(X-1,Y-1,X+1,Y-1
+End
+
+If [A](A,B)=7
+Then
+Line(X-1,Y+2,X+1,Y+2
+Pt-On(X+1,Y+1
+Line(X,Y,X,Y-1
+End
+
+If [A](A,B)=8
+Then
+Pt-On(X,Y+1,2
+Line(X-1,Y-1,X+1,Y-1
+End
+
+If [A](A,B)=9
+Then
+Pt-On(X,Y,2
+Pt-On(X,Y
+11→K
+End
