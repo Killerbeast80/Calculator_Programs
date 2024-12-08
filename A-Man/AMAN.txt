@@ -1,0 +1,210 @@
+FnOff 
+AxesOff
+0→Xmin:1→X
+0→Ymin:1→Y
+
+0→W
+While W<1 or W>6
+ClrHome
+Input "LEVEL:",W
+End
+
+For(L,W,6)
+ClrDraw
+Vertical 0:Vertical 94
+Text(0,2,"Level"
+Text(0,23,L
+Text(0,86,"/"
+If L=1
+{11,7,3,86,34,1,1,3,7,2,24,3,8,2,23,3,9,2,22,3,12,5,3,3,8,2,8,3,23,2,8,3,23,2,8,3,24,2,7,3,25,2,6,3,26,2,5}→L₁
+If L=2
+{17,16,2,86,22,1,1,2,20,3,2,2,9,2,20,3,2,2,9,2,20,3,2,2,9,3,1,5,1,3,7,2,8,3,9,2,5,3,9,2,7,3,10,2,5,3,11,5,3,4,3,12,5,1}→L₁
+If L=3
+{32,34,1,86,16,1,1,2,16,3,10,2,5,2,16,3,10,2,5,2,16,3,10,2,5,2,12,3,1,5,1,4,2,12,4,2,12,4,2,12,4,2,16,4,2,16,4,3,2,5,2}→L₁
+If L=4
+{41,37,2,86,28,1,1,2,11,3,4,2,16,2,11,3,5,2,15,3,1,5,1,3,4,2,5,3,1,2,1,3,4,2,14,3,1,5,1,3,4,2,5,3,1,2,2,3,4,2,13,3,26,2,5,3,26,2,5,3,26,2,5,4,3,10,2,9,4,3,9,2,11,4,3,16,5,2}→L₁
+If L=5
+{62,25,4,86,40,1,1,2,6,3,7,2,18,2,5,3,9,2,17,2,4,3,3,2,5,3,3,2,3,3,1,5,6,2,6,5,2,3,6,5,2,3,6,5,1,3,8,2,6,5,1,3,8,5,1,3,6,5,1,3,8,2,6,3,10,2,6,5,1,2,14,3,23,2,8,3,25,2,6,3,25,2,6,3,25,2,6,3,25,2,6}→L₁
+If L=6
+{56,28,2,86,46,1,1,2,13,3,4,5,1,3,4,2,9,2,13,3,10,2,8,2,13,3,10,2,8,2,12,3,13,5,1,2,5,2,11,3,15,2,5,2,10,3,3,2,9,3,4,2,5,2,9,3,4,2,1,5,1,2,6,3,8,5,2,2,8,3,6,5,1,4,2,7,4,2,6,3,16,2,9,3,1,5,2,3,22,2,6,3,7,2,7,3,12,2,5,3,9,5,3,3,14,2,5}→L₁
+
+2→B
+1→C
+L₁(1)→X
+L₁(2)→Y
+L₁(3)→H
+L₁(4)→I
+L₁(5)→J
+X→M
+Y→N
+1→P
+0→G
+Text(0,90,H
+
+For(E,6,dim(L₁))
+E→A
+
+If L₁(A)=1
+Then
+For(D,1,31
+Pt-On(B,C,2
+Pt-On(B,C
+B+3→B
+End
+End
+
+If L₁(A)=2
+Then
+For(D,1,L₁(A+1
+Pt-On(B,C,2
+Pt-On(B,C
+B+3→B
+End
+E+1→E
+End
+
+If L₁(A)=3
+Then
+B+3(L₁(A+1))→B
+E+1→E
+End
+
+If L₁(A)=5
+Then
+For(D,1,L₁(A+1
+Pt-On(B,C,2
+B+3→B
+End
+E+1→E
+End
+
+If B=95 or L₁(A)=4
+Then
+2→B
+C+3→C
+End
+
+End
+
+Pt-On(X,Y,2
+Pt-On(X,Y+3,2
+Pt-Off(X,Y-1
+Pt-On(I,J,3
+
+0→F
+While F=0
+getKey→K
+
+If K=24
+Then
+If pxl-Test(60-Y,X-2)=0
+Then
+If pxl-Test(63-Y,X-2)=0
+Then
+X-3→M
+Y→N
+0→P
+End
+If pxl-Test(63-Y,X-2)=1 and pxl-Test(57-Y,X-2)=0 and pxl-Test(57-Y,X+1)=0
+Then
+X-3→M
+Y+3→N
+0→P
+End
+End
+End
+
+If K=26
+Then
+If pxl-Test(60-Y,X+2)=0
+Then
+If pxl-Test(63-Y,X+2)=0
+Then
+X+3→M
+Y→N
+1→P
+End
+If pxl-Test(63-Y,X+2)=1 and pxl-Test(57-Y,X+2)=0 and pxl-Test(57-Y,X-1)=0
+Then
+X+3→M
+Y+3→N
+1→P
+End
+End
+End
+
+If K=34
+Then
+If G>0
+Then
+If P=0 and pxl-Test(62-Y,X-2)=0
+Then
+X-3→Q
+Y→R
+G-1→G
+While pxl-Test(65-R,Q+1)=0
+R-3→R
+End
+Pt-On(Q,R,2
+End
+If P=1 and pxl-Test(62-Y,X+2)=0
+Then
+X+3→Q
+Y→R
+G-1→G
+While pxl-Test(65-R,Q-1)=0
+R-3→R
+End
+Pt-On(Q,R,2
+End
+End
+End
+
+If K=25
+Then
+If pxl-Test(65-Y,X)=0 and pxl-Test(64-Y,X+1)=1 and G≠H
+Then
+Pt-Off(X,Y-3,2
+G+1→G
+End
+End
+
+While pxl-Test(66-N,M+1)=0
+N-3→N
+End
+
+If K≠0
+Then
+Pt-Off(X,Y,2
+Pt-Off(X,Y+3,2
+Pt-On(M,N,2
+Pt-On(M,N+3,2
+Pt-Off(M,N-1
+End
+
+If K=21
+Then
+1→F
+L-1→L
+End
+
+If X=I and Y=J
+1→F
+
+M→X
+N→Y
+
+Text(0,82,G)
+
+End
+
+ClrList L₁
+End
+ClrHome
+Disp "YOU WIN"
+Pause 
+ClrHome
+ClrDraw
+AxesOn 
+FnOn 
+ClrHome

@@ -1,0 +1,250 @@
+If Q≠295294.444
+Goto 2
+0→Q
+
+If E=1
+Then
+Line(M-7,23,M+7,23,0
+Line(M+7,23,M+7,9,0
+Line(M-7,9,M+7,9,0
+Line(M-7,9,M-7,23,0
+Pt-Off(M,16,2
+Pt-Off(M,16
+Line(M-5,21,M-5,11,0
+Line(M-4,21,M-4,11,0
+Line(M-3,21,M-3,11,0
+Line(M+5,21,M+5,11,0
+Line(M+4,21,M+4,11,0
+Line(M+3,21,M+3,11,0
+Else
+Line(M-7,23,M+7,23
+Line(M+7,23,M+7,9
+Line(M-7,9,M+7,9
+Line(M-7,9,M-7,23
+
+If B≠1
+Then
+Pt-On(M-4,20,2
+Pt-On(M-4,20
+Pt-On(M+4,12,2
+Pt-On(M+4,12
+End
+
+If B=6
+Then
+Pt-On(M-4,16,2
+Pt-On(M-4,16
+Pt-On(M+4,16,2
+Pt-On(M+4,16
+End
+
+If B=4 or B=5 or B=6
+Then
+Pt-On(M+4,20,2
+Pt-On(M+4,20
+Pt-On(M-4,12,2
+Pt-On(M-4,12
+End
+
+If B=1 or B=3 or B=5
+Then
+Pt-On(M,16,2
+Pt-On(M,16
+End
+
+End
+
+Return
+Lbl 2
+
+AxesOff
+ClrDraw
+FnOff 
+ZStandard
+84→Xmin
+72→Ymax
+ZInteger
+Horizontal 29
+Horizontal 33
+Line(11,42,83,42
+Line(11,52,83,52
+Line(11,54,83,54
+For(A,0,9)
+Line(11+8A,42,11+8A,54
+End
+Line(0,47,10,47
+Line(10,47,10,42
+Line(84,42,84,47
+Line(84,47,94,47
+For(A,1,9)
+Text(­1,12,5+8A,A
+End
+
+Line(64,0,64,5
+Line(78,0,78,5
+Line(80,0,80,5
+Line(94,0,94,5
+Line(65,6,77,6
+Line(81,6,93,6
+Line(0,0,0,5
+Line(1,6,13,6
+Line(14,5,14,0
+Text(57,2,"END"
+Pt-On(70,3,2
+Pt-On(72,3,2
+Pt-On(72,3
+Pt-On(70,1,2
+Pt-On(70,1
+Pt-On(72,1,2
+Pt-On(83,3,2
+Pt-On(85,3,2
+Pt-On(85,3
+Pt-On(83,1,2
+Pt-On(83,1
+Pt-On(85,1,2
+Pt-On(89,3,2
+Pt-On(91,3,2
+Pt-On(91,3
+Pt-On(89,1,2
+Pt-On(89,1
+Pt-On(91,1,2
+
+Pt-On(47,57,3
+Line(45,58,49,58
+
+47→X
+0→T
+0→D
+0→R
+X→Z
+StorePic 1
+
+Repeat 0
+Repeat Ans
+getKey→K
+End
+
+If K=24 or K=26
+Then
+Pt-Off(X,57,3
+Line(X-2,58,X+2,58,0
+X-8(K=24)(X>15)+8(K=26)(X<79)→X
+Pt-On(X,57,3
+Line(X-2,58,X+2,58
+End
+
+If K=14
+Then
+For(A,18,34,8)
+If pxl-Test(10,A)=0 and pxl-Test(8,A
+0→K
+End
+For(A,66,82,8)
+If pxl-Test(10,A
+0→K
+End
+End
+
+If K=14 or K=15
+Then
+If D=R
+Then
+1→E
+37→M
+If pxl-Test(39,47
+47→M
+295294.444→Q
+prgmSHUTBOX
+57→M
+295294.444→Q
+prgmSHUTBOX
+0→E
+If K=14
+Then
+randInt(1,6)→B
+B→D
+47→M
+295294.444→Q
+prgmSHUTBOX
+Else
+randInt(1,6)→B
+B→D
+37→M
+295294.444→Q
+prgmSHUTBOX
+randInt(1,6)→B
+D+B→D
+57→M
+295294.444→Q
+prgmSHUTBOX
+End
+T+R→T
+If T=90
+Goto 1
+0→R
+X→Z
+StorePic 1
+Else
+ClrDraw
+RecallPic 1
+Z→X
+0→R
+End
+End
+
+If K=105
+Then
+(X-7)/8→C
+If pxl-Test(10,X+3
+Then
+R+C→R
+Text(­1,12,X-2," "
+Line(X-4,41,X-4,32
+Line(X+4,41,X+4,32
+Line(X-4,32,X+4,32
+Line(X-3,33,X+3,33,0
+Line(X-3,43,X+3,43
+Line(X-3,44,X+3,44
+Pt-Off(X-3,52
+Text(­1,10,X-2,10-C
+Else
+If pxl-Test(8,X
+Then
+R+10-C→R
+Text(­1,10,X-2," "
+Line(X-3,42,X+3,42,0
+Line(X-3,43,X+3,43,0
+Line(X-3,54,X+3,54,0
+Line(X-3,34,X+3,34
+Line(X-3,45,X+3,45
+Line(X-3,46,X+3,46
+Line(X-3,47,X+3,47
+If pxl-Test(8,X+5)=0
+Line(X+4,54,X+4,48,0
+If pxl-Test(8,X-5)=0
+Line(X-4,54,X-4,48,0
+End
+End
+End
+
+If K=11
+Then
+ClrHome
+Stop
+End
+
+End
+Lbl 1
+Line(13,58,81,58,0
+Line(13,57,81,57,0
+Line(13,56,81,56,0
+Text(­1,7,13,"S"
+Text(­1,7,21,"H"
+Text(­1,7,29,"U"
+Text(­1,7,37,"T"
+Text(­1,7,53,"B"
+Text(­1,7,61,"O"
+Text(­1,7,69,"X"
+Text(­1,7,77,"!"
+Pause 
+Stop

@@ -1,0 +1,39 @@
+ClrDraw
+AxesOff
+FnOff 
+Degree
+­47→Xmin
+47→Xmax
+­31→Ymin
+31→Ymax
+Circle(0,0,30,{})
+Pt-On(0,28):Pt-On(14,24):Pt-On(24,14):Pt-On(28,0):Pt-On(24,­14):Pt-On(14,­24):Pt-On(0,­28):Pt-On(­14,­24):Pt-On(­24,­14):Pt-On(­28,0):Pt-On(­24,14):Pt-On(­14,24)
+getTime→L₁
+1→A
+Goto 1
+Lbl 2
+0→A
+Repeat getKey
+getTime→L₁
+If L₁(2)≠L₂(2)
+Then
+Line(0,0,18cos(­30(L₂(1)+L₂(2)/60)+90),18sin(­30(L₂(1)+L₂(2)/60)+90),0)
+Line(0,0,27cos(­6L₂(2)+90),27sin(­6L₂(2)+90),0)
+End
+If L₁(3)≠L₂(3)
+Then
+Line(0,0,27cos(­6L₂(3)+90),27sin(­6L₂(3)+90),0)
+Lbl 1
+Line(0,0,18cos(­30(L₁(1)+L₁(2)/60)+90),18sin(­30(L₁(1)+L₁(2)/60)+90))
+Line(0,0,27cos(­6L₁(2)+90),27sin(­6L₁(2)+90))
+Line(0,0,27cos(­6L₁(3)+90),27sin(­6L₁(3)+90))
+Text(57,68,getTmStr(12))
+L₁→L₂
+If A
+Goto 2
+End
+End
+ClrDraw
+AxesOn 
+FnOn 
+ClrHome

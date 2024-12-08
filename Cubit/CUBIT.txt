@@ -1,0 +1,98 @@
+AxesOff
+FnOff 
+ZStandard
+84→Xmin
+72→Ymax
+ZInteger
+
+Line(0,62,93,62
+Line(1,61,92,61
+Line(93,62,93,4
+Line(92,61,92,5
+Line(93,4,0,4
+Line(92,5,1,5
+Line(0,4,0,62
+Line(1,5,1,61
+
+{19,28,29,33,34,23}→L₁
+For(A,1,5,2)
+L₁(A)→X
+L₁(A+1)→Y
+Pt-On(X-1,Y+1,2
+Pt-On(X+1,Y+1,2
+Pt-On(X-1,Y-1,2
+Pt-On(X+1,Y-1,2
+Pt-Off(X,Y,3
+End
+Pt-On(34,23,2
+Pt-On(34,23
+
+44→X
+28→Y
+
+Pt-On(X-1,Y+1,2
+Pt-On(X+1,Y+1,2
+Pt-On(X-1,Y-1,2
+Pt-On(X+1,Y-1,2
+Line(X,Y+1,X,Y-1,0
+
+Repeat 0
+Repeat Ans
+getKey→K
+End
+
+pxl-Test(62-(Y-3(K=34)+3(K=25)),X-3(K=24)+3(K=26))→W
+If W
+Then
+If pxl-Test(62-(Y-4(K=34)+4(K=25)),X-4(K=24)+4(K=26))=0
+Then
+X-5(K=24)+5(K=26)→M
+Y-5(K=34)+5(K=25)→N
+0→D
+0→S
+While D+S=0
+If pxl-Test(62-(N+2(K=34)-2(K=25)),M+2(K=24)-2(K=26))=0
+Then
+1→D
+Else
+If pxl-Test(62-(N+(K=34)-(K=25)),M+(K=24)-(K=26))=1
+Then
+1→S
+Else
+M-5(K=24)+5(K=26)→M
+N-5(K=34)+5(K=25)→N
+End
+End
+End
+If S=0
+Then
+Pt-On(M-1,N+1,2
+Pt-On(M+1,N+1,2
+Pt-On(M-1,N-1,2
+Pt-On(M+1,N-1,2
+Pt-Off(M,N,3
+0→W
+End
+End
+End
+
+If K>23 and K<35 and W=0
+Then
+Pt-Off(X-1,Y+1,2
+Pt-Off(X+1,Y+1,2
+Pt-Off(X-1,Y-1,2
+Pt-Off(X+1,Y-1,2
+X-5(K=24)+5(K=26)→X
+Y-5(K=34)+5(K=25)→Y
+Pt-On(X-1,Y+1,2
+Pt-On(X+1,Y+1,2
+Pt-On(X-1,Y-1,2
+Pt-On(X+1,Y-1,2
+Pt-Off(X,Y,3
+If K=24 or K=34
+Pt-On(X-1,Y)
+If K=26 or K=34
+Pt-On(X+1,Y)
+End
+
+End
