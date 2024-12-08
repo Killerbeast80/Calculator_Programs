@@ -1,0 +1,8 @@
+L₂(Y+1)→L₂(Y)
+0→L₂(Y+1)
+End
+End
+A-1→A
+End
+End
+S+Q²*40→S
